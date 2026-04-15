@@ -1,0 +1,269 @@
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: "Figtree", sans-serif;
+    height: 100vh;
+}
+
+
+header {
+    
+    height: 100px;
+    background-color: rgba(9, 33, 42, 1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;   /* macht, dass der Header über dem Bild liegt.*/
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 0 100px;
+    height: 100px;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.Fotogram_Logo {
+    height: 40px;
+}
+
+.Fotogram_Logo_Text {
+    height: 35px;
+    
+}
+
+main {
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(6, 23, 30, 1);
+}
+
+main h1 {
+    color: rgb(160, 240, 253);
+    font-size: 48px;
+}
+
+.sectionGalery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(160, 240, 253);
+    padding: 10px 0 10px 0;
+}
+
+.sectionGalery img {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 4px solid rgb(160, 240, 253);
+    display: block;
+}
+
+.sectionGalery img:hover {
+    transform: scale(1.02)
+}
+
+.galeryImgs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 0 max(calc(50% - 720px), 100px);
+    list-style-type: none;
+}
+
+.galeryImgs button{
+    border: none;
+    padding-block: 0;
+    padding-inline: 0;
+    border-radius: 8px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: rgba(9, 33, 42, 1);
+    color: white;
+}
+
+.footerContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 100px;
+    height: 100px;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+footer img {
+    height: 40px;
+}
+
+footer a:hover {
+    filter: drop-shadow(0 0 10px rgba(255,255,200,0.8));
+}
+
+dialog.opened {
+    border:  5px solid rgb(160, 240, 253);
+    color: white;
+    background-color: rgba(9, 33, 42, 1);
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.dialogButton {
+    padding-block: 0;
+    padding-inline: 0;
+    border-radius: 50%;
+    border: none;
+}
+
+
+
+dialog img{
+    display: block;
+}
+
+.bigImg {
+    height: 374.71px;
+    width: 560px;
+    object-fit: cover;
+    border: 4px solid rgb(160, 240, 253);
+    margin-bottom: 20px;
+}
+
+.dialogCloseButton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.lastNextButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.pictureContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 700px) {
+    
+    .Fotogram_Logo {
+    height: 30px;
+    }
+
+    .Fotogram_Logo_Text {
+    height: 26px;
+    
+    }
+    
+    
+    main h1 {
+        font-size: 30px;
+    }
+
+    .headerContent {
+        justify-content: center;
+    }
+
+}
+
+@media (max-width: 650px) {
+    
+    dialog.opened {
+        width: 400px;
+    }
+
+    .bigImg {
+        width: 380px;
+        height: 260px;
+    }
+
+    
+
+}
+
+@media (max-width: 550px) {
+    
+    .Fotogram_Logo {
+    height: 25px;
+    }
+
+    .Fotogram_Logo_Text {
+    height: 22px;
+    
+    }
+    
+    
+    main h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    dialog h2 {
+        font-size: 24px;
+    }
+
+    .headerContent, .footerContent, .galeryImgs {
+        padding: 0 60px;
+    }
+
+}
+
+@media (max-width: 450px) {
+    
+    
+    main h1 {
+        font-size: 20px;
+    }
+
+    dialog.opened {
+        width: 270px;
+    }
+
+    .bigImg {
+        width: 280px;
+        height: 250px;
+    }
+
+    footer p {
+        display: none;
+    }
+
+    .footerContent {
+        justify-content: center;
+    }
+
+}
+
+

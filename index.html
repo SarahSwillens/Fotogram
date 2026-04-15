@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotogram</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body onload="renderGallery()">
+    
+
+
+        <header>
+            <div class="headerContent">
+                <img class="Fotogram_Logo" src="./icon/Fotogram_Logo.png" alt="Fotogram Logo">
+                <img class="Fotogram_Logo_Text" src="./icon/Fotogram_Logo_Text.png" alt="Fotogram Logo Text">
+            </div>
+        </header>
+
+        <main>
+            
+            <h1>Paco's photo album</h1>   
+            
+            <section class="sectionGalery">
+
+                <h2>Babyboy ♥</h2>
+                <ul id="babyGalleryContainer" class="galeryImgs"></ul>
+                
+            </section>
+
+            <section class="sectionGalery">
+
+                <h2>Big Boy ♥</h2>
+                <ul id="bigGalleryContainer" class="galeryImgs"></ul>
+
+            </section>
+
+
+
+        </main>
+   
+    <footer>
+        <div class="footerContent">
+            <p>Fotos by &copy; Sarah Swillens</p>
+            <div>
+                <a href="http://www.instagram.com"><img src="./icon/insta.png" alt="Instagram"></a>
+                <a href="http://www.facebook.com"><img src="./icon/facebook.png" alt="Facebook"></a>
+            </div>
+        </div>    
+    </footer>
+
+    <dialog id="dialog" closedby="any">
+        <div class="dialogCloseButton">
+            <button  class="dialogButton" tabindex="0" onclick="closeDialog()">
+                <img src="./icon/close_default.png" onmouseover="this.src='./icon/close_hover.png'" onmouseout="this.src='./icon/close_default.png'" alt="">
+            </button>
+        </div>
+
+        <div class="pictureContainer" id="pictureContainer">
+        </div>
+
+        <div class="lastNextButtons" id="lastNextButtons">
+        </div>
+        
+    </dialog>
+
+    
+
+    <script src="script.js"></script>
+    <script src="template.js"></script>
+    
+</body>
+</html>
