@@ -61,18 +61,18 @@ function renderGallery() {
   for (let i = 0; i < babyGalleryImgs.length; i++) {
     let filenameBaby = babyGalleryImgs[i]; // filename wird hier als Parameter genommen
 
-    babyGalleryContainer.innerHTML += displayGalleryPhotoBaby(i, filenameBaby); // die TemplateFunktion wird ausgelagert.
+    babyGalleryContainer.innerHTML += displayGalleryPhotoBaby(i, filenameBaby, babyGalleryImgs); // die TemplateFunktion wird ausgelagert.
   }
 
   for (let i = 0; i < bigGalleryImgs.length; i++) {
     let filenameBig = bigGalleryImgs[i];
 
-    bigGalleryContainer.innerHTML += displayGalleryPhotoBig(i, filenameBig);
+    bigGalleryContainer.innerHTML += displayGalleryPhotoBig(i, filenameBig, bigGalleryImgs);
   }
 }
 
 
-function openDialogBaby(i) {
+function openDialog(i, namesArray, pictureArray) {
   currentIndex = i;
   let pictureContainer = document.getElementById("pictureContainer");
   let lastNextButtons = document.getElementById("lastNextButtons");
@@ -80,24 +80,16 @@ function openDialogBaby(i) {
   dialogRef.showModal();
   dialogRef.classList.add("opened");
 
-  pictureContainer.innerHTML = displayPictureContainerBaby(i);
+  pictureContainer.innerHTML = displayPictureContainer(i, namesArray, pictureArray);
 
-  lastNextButtons.innerHTML = displayLastNextButtonsBaby(i);
+  let arrayname = [];
+  if (pictureArray == babyGalleryImgs) {
+    arrayname = "babyGalleryImgs";
+  } else {
+    arrayname = "bigGalleryImgs";
+  }
+  lastNextButtons.innerHTML = displayLastNextButtons(i, arrayname);
   
-}
-
-
-function openDialogBig(i) {
-  currentIndex = i;
-  let pictureContainer = document.getElementById("pictureContainer");
-  let lastNextButtons = document.getElementById("lastNextButtons");
-
-  dialogRef.showModal();
-  dialogRef.classList.add("opened");
-
-  pictureContainer.innerHTML = displayPictureContainerBig(i);
-
-  lastNextButtons.innerHTML = displayLastNextButtonsBig(i);
 }
 
 
@@ -107,43 +99,46 @@ function closeDialog() {
 }
 
 
-function prevImgBaby() {
+function prevImg(arrayName) {
   currentIndex--;
+  let array = [];
+
+  if (arrayName == "babyGalleryImgs") {
+    array = babyGalleryImgs
+  } else if (arrayName == "bigGalleryImgs") {
+    array = bigGalleryImgs
+  }
 
   if (currentIndex < 0) {
-    currentIndex = babyGalleryImgs.length - 1;
+  currentIndex = array.length - 1;
   }
 
-  openDialogBaby(currentIndex);
+  if (arrayName == "babyGalleryImgs") {
+  openDialog(currentIndex, babyNames, babyGalleryImgs);
+} else {
+  openDialog(currentIndex, bigNames, bigGalleryImgs);
+}
 }
 
 
-function nextImgBaby() {
+function nextImg(arrayName) {
+  let array = []
+  if (arrayName == "babyGalleryImgs") {
+    array = babyGalleryImgs
+  } else if (arrayName == "bigGalleryImgs") {
+    array = bigGalleryImgs
+  }
+  
   currentIndex++;
 
-  if (currentIndex >= babyGalleryImgs.length) {
+  if (currentIndex >= array.length) {
     currentIndex = 0;
   }
-  openDialogBaby(currentIndex);
+
+  if (arrayName == "babyGalleryImgs") {
+  openDialog(currentIndex, babyNames, babyGalleryImgs);
+  } else {
+  openDialog(currentIndex, bigNames, bigGalleryImgs);
+  };
 }
 
-
-function prevImgBig() {
-  currentIndex--;
-
-  if (currentIndex < 0) {
-    currentIndex = bigGalleryImgs.length - 1;
-  }
-
-  openDialogBig(currentIndex);
-}
-
-
-function nextImgBig() {
-  currentIndex++;
-
-  if (currentIndex >= bigGalleryImgs.length) {
-    currentIndex = 0;
-  }
-  openDialogBig(currentIndex);
-}
